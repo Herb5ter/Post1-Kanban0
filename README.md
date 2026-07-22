@@ -3,7 +3,7 @@
 <!-- WRite the about section after main secttions are finalized. Display this in the about section of the repository -->
 
 ## Introducing the Kanban System
-In production processes, a kanban system is a method of supplying materials by using a kanban (means "signpost in Japanese) card as a signal to resupply a particular material.
+In production processes, a kanban system is a method of supplying materials by using a kanban (means "signpost" in Japanese) card as a signal to resupply a particular material.
 
 When materials are used to convert raw materials into finished goods, the bins that hold them are eventually emptied. In a kanban system, each bin holds an information card about the particular material so that when the empty bin is sent to a supplier, the supplier knows to produce more of that material based on the card's description. This way, when the manufacturer empties the next bin of the same material, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the process operates. 
 
