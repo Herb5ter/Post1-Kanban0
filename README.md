@@ -3,7 +3,7 @@
 <!-- WRite the about section after main secttions are finalized. Display this in the about section of the repository -->
 
 ## Introducing the Kanban System
-In production processes, a kanban system is a method of supplying materials by using a kanban (means "signpost in Japanese) card as a signal to resupply a particular material.
+In production processes, a kanban system is a method of supplying materials by using a kanban (means "signpost" in Japanese) card as a signal to resupply a particular material.
 
 When materials are used to convert raw materials into finished goods, the bins that hold them are eventually emptied. In a kanban system, each bin holds an information card about the particular material so that when the empty bin is sent to a supplier, the supplier knows to produce more of that material based on the card's description. This way, when the manufacturer empties the next bin of the same material, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the process operates. 
 
@@ -40,4 +40,4 @@ Once we have a kanban card count for all N types of goods, then we can add all o
 Now, we have N types of goods that contribute to any of the possible processes in the factory as as well as K kanban cards that are revealed for the goods as the processing running time period passes. SInce the kanban system cards signal consumption for each good, how many processes will reveal a specific amount of kanban cards (like 6 cards, or 21 cards, etc.)?
 
 ## Reasoning to Mathematical Solution <!-- Ponder on a another subtitle for this section -->
-<!-- We'll stop here for today. Learn how to typeset mathematical solutions beofre continuing.>
+<!-- We'll stop here for today. Learn how to typeset mathematical solutions before continuing.>
