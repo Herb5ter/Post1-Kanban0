@@ -1,4 +1,4 @@
-# Kanban Systems as a Display of Demand
+# Kanban Systems as a Display of Demand: A Combinatoric Perspective
 ## Introducing the Kanban System
 In production processes, a kanban system is a method of supplying materials by using a kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
 
