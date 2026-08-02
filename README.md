@@ -5,7 +5,19 @@ In production processes, a kanban system is a method of supplying materials by u
 When materials are used to convert raw materials into finished goods, the bins that hold them are eventually emptied. In a kanban system, each bin holds an information card about the particular material so that when the empty bin is sent to a supplier, the supplier knows to produce more of that material based on the card's description. This way, when the manufacturer empties the next bin of the same material, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the process operates. 
 
 Below is a diagram to depict the system.
-<!-- Kanban System Diagram here-->
+<!-- As of August 2nd, 2026. nodes in differing subgraphs can link ONLY if the subgraphs have NO specified direction. -->
+```mermaid
+flowchart TB
+  One(["Factory Floor"])-.->Act1["Bin empties."]--->|Empty bin sent to...|Two(["Material Production Location"]);
+  Three(["Inventory"]) -.-> Act4["Material ordered by manufacturer."] --->|Material is sent to...| Four(["Inventory"]);
+  subgraph Manufacturer
+    One ~~~ Act1 ~~~ Four
+    end;
+  subgraph Supplier
+    Two -.-> Act2["Kanban Card is read."] ---> Act3["Empty bin filled."];
+    Act3 --->|Bin placed in...| Three;
+    end;
+```
 When a manufacturer employs this system in production, they
 - prevent excessive surplus of materials for production, and
 - allow each process to have necessary materials for manufacturing.
