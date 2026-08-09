@@ -1,10 +1,10 @@
 # Kanban Systems as a Display of Demand: A Combinatoric Perspective
 ## Introducing the Kanban System
-In production processes, a kanban system is a method of supplying materials by using a kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
+In manufacturing, a Kanban system is a method of supplying materials by using a Kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
 
-When materials are used to convert raw materials into finished goods, the bins that hold them are eventually emptied. In a kanban system, each bin holds an information card about the particular material so that when the empty bin is sent to a supplier, the supplier knows to produce more of that material based on the card's description. This way, when the manufacturer empties the next bin of the same material, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the process operates. 
+When manufacturing processes convert raw materials into finished goods, there are bins that hold the various materials. As processes run, those bins are eventually emptied. In a Kanban system, each bin holds an information card about the particular material so that when an empty bin is sent to a supplier, the supplier knows to produce more of that material based on the card's description. This way, when the manufacturer empties the next bin of the same material and orders more from the supplier, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the running time continues. 
 
-Below is a diagram to depict the system.
+Below is a diagram to depict a bin in the Kanban system.
 <!-- As of August 2nd, 2026. nodes in differing subgraphs can link ONLY if the subgraphs have NO specified direction. -->
 ```mermaid
 flowchart TB
@@ -23,28 +23,32 @@ When a manufacturer employs this system in production, they
 - allow each process to have necessary materials for manufacturing.
 
 ## Question of Interest
-Since the Kanban card serves as a signal to the supplier that a particular material has been consumed and needs to be produced more of, we find that <!-- May become a quote later. I want to emphasize this point.-->consumption drives production through the kanban card. The kanban card also signals a demand for a particular material or good because the kanban card's good is actively being requested for in the production process. 
+Since the Kanban card serves as a signal to the supplier that a particular material has been consumed and needs to be produced more of, we find that <!-- May become a quote later. I want to emphasize this point.-->consumption drives production through the Kanban card. The Kanban card also signals demand for a particular material because the material is actively being requested for in the production process. 
 
-Now, because a manufacturing facility may have multiple processes running at one time, it is possible that there are various scenarios of kanban cards being revealed for their respective goods. To better prepare for those scenarios, a facility may desire to know the possible make-ups of demand they may encounter given the goods involved in each process. Knowing this requires us to ask this question:
+Now, because a manufacturing facility may have multiple processes running at one time, it is possible that there are various scenarios of Kanban cards to be revealed for their respective materials. To better prepare for those scenarios, a facility may desire to know the possible make-ups of demand to encounter given the materials involved in each process. Knowing this requires us to ask this question:
 
->"How can the kanban system be used to display possible structures of demand?"
+>"How can the Kanban system be used to display possible structures of demand?"
 
 ## Assumptions For Representation/Model <!-- Determine between one of these -->
-To delve into this question, let's establish some assumptions for our representation of a kanban system.
+To delve into this question, let's establish some assumptions for our representation of a Kanban system.
 
-1. Say that a factory holds a fixed number of various types of goods, like bolts, nuts, gallons of paint, planks of lumber, and many others. Let's call this fixed number N. It's important to mention that each type of good has a differing attribute about them, no matter how similar they are. For example, a 4" by 4" by 10' plank of pressure treated wood is a different good than a 4" by 4" by 15' plank of pressure treated wood.
-2. Each of these N goods are available to readily contribute to any of the factories manufacturing processes (from raw materials to finished goods).
-3. Let's also assume that each process runs for the same predetermined time period, which is in some amount of hours, minutes, and seconds.
+1. Say that a factory holds a fixed number of various types of materials or parts, like bolts, nuts, gallons of paint, planks of lumber, and many others. Let's call this fixed number N. It's important to mention that each type of materials has a differing attribute about them, no matter how similar they are. For example, a 4" by 4" by 10' plank of pressure treated wood is a different material than a 4" by 4" by 15' plank of pressure treated wood.
+2. Each of these N types of materials are available to readily contribute to any of the factory's manufacturing processes (from raw materials to finished goods).
+3. Let's also assume that each process runs for the same predetermined process running time period, which is in some amount of hours, minutes, and seconds.
 <!-- Assumption 4 - To save or not to save. Hmmmm. --> 
 4. Even though each process may require different time intervals for process completion, a complete process is not necessary for this example. The reason why will be mentioned soon.
-5. As each process empties bins for each good, assume that the good has a full bin ready to be used (or drawn from) and the empty bin is immediately sent to the supplier.
+5. As each process empties bins for each material, assume that it has a full bin ready to be used (or drawn from) and the empty bin is immediately sent to the supplier.
 
 ### Consequences of Assumptions
-Since this factory employs a kanban system, then it's true that each of the N goods reveals a certain number of Kanban cards over the predetermined time period. Let's allow **$`c_i`$** to be the number of kanban cards that reveal as the $`i^{\text{th}}`$ type of good is used over the predetermined process time period, where i is a whole number greater than or equal to 0 and less than or equal to N. (Ex. If a 1/4' standard washer is good 1, and 5 Kanban cards are revealed during the predetermined process running time, then $`c_1`$ = 5 represents the kanban cards for this particular washer during the predetermined process running time.
+Since this factory employs a Kanban system, then it's true that each of the N materials reveals a certain number of Kanban cards over the predetermined process running time period. 
 
-Once we have a kanban card count for all N types of goods, then we can add all of the kanban card counts to obtain a number K, which is the total number of kanban cards that are revealed in the predetermined process running time for all types of goods. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
+*Note: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period".*
 
-Now, we have N types of goods that contribute to any of the possible processes in the factory as well as K kanban cards that are revealed for the goods as the processing running time period passes. Since the kanban cards signal consumption for each good, how many processes will reveal a specific amount of kanban cards (like 6 cards, or 21 cards, etc.)?
+Let's allow **$`c_i`$** to be the number of Kanban cards that reveal as the $`i^{\text{th}}`$ type of material used over the time period, where i is a whole number greater than or equal to 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 Kanban cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
+
+Once we have a Kanban card count for all N types of materials, then we can add all of the Kanban card counts to obtain a number K, which is the total number of Kanban cards shown during the running time. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
+
+Now, we have N types of materials that contribute to any of the possible processes in the factory as well as K Kanban cards for the total as the<!--pick up her--> time interval passes. Since the kanban cards signal consumption for each good, how many processes will reveal a specific amount of kanban cards (like 6 cards, or 21 cards, etc.)?
 
 ## Process Counting Reasoning <!-- Ponder on a another subtitle for this section -->
 If there is a specified number of total kanban cards <!-- "like K = 4" -->, then we want to know how many possible outcomes of processes will yield that specified number of total kanban cards. We will treat the outcome of a process as the outcome of kanban cards revealed for each type of good after the predetermined process running time passes. 
