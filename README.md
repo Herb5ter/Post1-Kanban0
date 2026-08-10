@@ -48,21 +48,21 @@ Let's allow **$`c_i`$** to be the number of Kanban cards that reveal as the $`i^
 
 Once we have a Kanban card count for all N types of materials, then we can add all of the Kanban card counts to obtain a number K, which is the total number of Kanban cards shown during the running time. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
 
-Now, we have N types of materials that contribute to any of the possible processes in the factory as well as K Kanban cards for the total as the<!--pick up her--> time interval passes. Since the kanban cards signal consumption for each good, how many processes will reveal a specific amount of kanban cards (like 6 cards, or 21 cards, etc.)?
+Now, we have N types of materials that contribute to any of the possible processes in the factory as well as K total Kanban cards as the time interval passes. Since the Kanban cards signal consumption for each good, how many processes will reveal a specific amount of kanban cards (like 6 cards, or 21 cards, etc.)?
 
 ## Process Counting Reasoning <!-- Ponder on a another subtitle for this section -->
-If there is a specified number of total kanban cards <!-- "like K = 4" -->, then we want to know how many possible outcomes of processes will yield that specified number of total kanban cards. We will treat the outcome of a process as the outcome of kanban cards revealed for each type of good after the predetermined process running time passes. 
+If there is a specified number of total Kanban cards <!-- "like K = 4" -->, then we want to know how many possible outcomes of processes will yield that specified number. We will treat the outcome of a process as the amount of kanban cards revealed for each type of material after the running time passes. 
 
 <!-- You must briefly, simply explain the combination concept and its notation BEFORE the next section.--->
 
 ### Counting of One Process
-In the eyes of the supplier, the kanban cards that are revealed in the bins of each respective type of good (Ex. if 3 cards are revealed from good 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
-* The cards are <ins>identical</ins> because the information on those kanban cards for the material are about the same type of goods. Each card is the same!
-* The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the predetermined process running time and the message to the supplier is to produce more of that type of good. No matter the order in which they appear to the supplier, the message to the supplier is the same!
+In the eyes of the supplier, the Kanban cards in the bins of each respective type of material (Ex. if 3 cards are revealed from good 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
+* The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
+* The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 
-So, the total kanban cards K can be split in N groups of cards of sizes $`c_1`$, ... , $`c_N`$. This represents the cards that are selected to be revealed in each bin for the types of goods.
-
-Then, to select $`c_i`$ identical cards for the bins of the $`i^{\text{th}}`$ type of good from the corresponding $`c_i`$ groups of kanban cards such that they are indistinguishable, the number of ways to select the cards is <!-- c_i C c_i; Use Latex/MathJax for this -->$`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of good. 
+So, the total Kanban cards K can be split in N groups of card sizes $`c_1`$, ... , $`c_N`$. This represents the cards that are selected to be revealed in each bin for the types of materials.
+<!-- Math jump happens here without the combination explanation--->
+Then, to select $`c_i`$ identical cards for the bins of the $`i^{\text{th}}`$ type of good from the corresponding $`c_i`$ groups of Kanban cards such that they are indistinguishable, the number of ways to select the cards is <!-- c_i C c_i; Use Latex/MathJax for this -->$`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of good. 
 
 Consequently, to represent one process, which is the distribution of kanban cards among each material, we have  
 
@@ -72,7 +72,7 @@ $$\displaystyle{
     \cdot \binom{c_2}{c_2} 
     \cdot \cdot \cdot \binom{c_N}{c_N}}$$  
 
-as the number of ways to distribute K cards among N types of goods for the kanban system for one process.
+as the number of ways to distribute K cards among N types of goods for the Kanban system for one process.
 
 ### Counting of All Possible Processes
 To count all possible processes based on the total N materials in the factory, we must count all kanban placement scenarios where the sum of cards placed in the bins is K. This is can be found with following expression:  
@@ -95,7 +95,7 @@ The above expression is a general way of counting the possible number of process
 
 ## Interpretation
 ### Example
-Say we have 4 kanban cards show up among processes that have 3 materials available for use throughout the factory. These materials are wood, screws, and paint. How many possible ways can we expect the kanban cards to reveal themselves as they are used?
+Say we have 4 Kanban cards show up among processes that have 3 materials available for use throughout the factory. These materials are wood, screws, and paint. How many possible ways can we expect the kanban cards to reveal themselves as they are used?
 
 One possible process can show 2 kanban cards for wood, 1 card for screws, and 1 card for paint. For this process, we can ask these questions for each group of kanban cards:
 
@@ -110,12 +110,12 @@ Using combinations, this one process is expressed as the number
 
 $$\displaystyle{\binom{2}{2} \cdot \binom{1}{1} \cdot \binom{1}{1} _\text{.}}$$ 
 
-There are many other processes that have 4 cards show up among the types of goods. Other examples include, but are not limited to,...
+There are many other processes that have 4 cards show up among the types of material. Other examples include, but are not limited to,...
 - 3 cards for wood, 1 card for screws, and 0 cards for paint
 - 1 card for wood, 2 cards for screws, and 1 card for paint
 - 0 cards for wood, 0 cards for screws, and 4 cards for paint
 
-The total number of processes where 4 Kanban cards are found in the 3 types of goods adds all of the processes like the ones previously listed. The expression to represent this sum is 
+The total number of processes where 4 Kanban cards are found in the 3 types of material adds all of the processes like the ones previously listed. The expression to represent this sum is 
 <!-- Mathematical Expression on page 16b --> 
 
 $$
@@ -131,19 +131,19 @@ $$
 }
 $$
 
-where $`c_1`$, $`c_2`$, and $`c_3`$ are the number of cards for the first type of good (wood), second type of good (screws), and third type of good (paint) respectively. The sum of $`c_1`$, $`c_2`$, and $`c_3`$ is 4.
+where $`c_1`$, $`c_2`$, and $`c_3`$ are the number of cards for the first type of material (wood), second type of material (screws), and third type of material (paint) respectively. The sum of $`c_1`$, $`c_2`$, and $`c_3`$ is 4.
 
 ### What does this mean?
-The resulting number from the sum of all possible processes with the chosen kanban card amount K is the total number of ways that the types of goods can be consumed given the predetermined process running time. Because the kanban cards are signals for production, and consequently the requested demand for the materials, this result gives the total number of <ins>**possible demand structures**</ins> for the factory in their manufacturing process over the predetermined process running time. 
+The resulting number from the sum of all possible processes with the chosen Kanban card total K is the total number of ways that the types of material can be consumed given the predetermined process running time. Because the Kanban cards are signals of production, and consequently the requested demand for the materials, this result gives the total number of <ins>**possible demand structures**</ins> for the factory in their manufacturing process over the running time. 
 
 ### How can this be helpful?
-If a factory using a Kanban system knows what and how many possible demand structures exist, then decision-makers may be able to determine how likely it is for certain types of goods to reach a certain consumption level during the predetermined process running time period. When determining likelihoods of such consumption events, I imagine that this calculation will determine the basis from which the events can come from. Although I don't see how at the moment, the calculation may assist with predicting the requested demand of the types of goods before production processes begin.
+If a factory using a Kanban system knows what possible demand structures exist and how many, then decision-makers may be able to determine how likely it is for certain types of material to reach a certain consumption level during the running time period. When determining likelihoods of such consumption events, I imagine that this calculation will determine the basis from which the events can come from. Although I don't see how at the moment, the calculation may assist with predicting the requested demand of the types of goods before production processes begin.
 
 ## Extending Questions
-The question we began exploration with is "How can a Kanban system be used to display possible structures of demand?". From previous obeservations, the Kanban system can be used to show possible displays of demand by counting the total number of ways a certain amount of kanban cards can show up among all availible types of goods to be used in a factory. 
+The question we began exploration with is "How can a Kanban system be used to display possible structures of demand?". From previous obeservations, the Kanban system can be used to show possible displays of demand by counting the total number of ways a specific amount of Kanban cards can show up among all availible types of material to be used in a factory. 
 
 - In this post, the Kanban system referred to is the two-bin system. However, during my reading, I found that there are many other types of Kanban systems like the Constant Work In Progress (CONWIP) system, the extended kanban system, and the generalized kanban system. How would the make-up of those systems change the make-up of our counting expression?
 
-- Also in my reading, I learned about something called the Economic Order Quantity, which is the amount of goods a company may order to minimize the cost of storing good for production. When a company is finding this measurement for a particular process, how does it impact the timing of kanban cards showing in the production process?
+- Also in my reading, I learned about something called the Economic Order Quantity, which is the amount of materials/parts a company may order to minimize the cost of storing them for production. When a company is finding this measurement for a particular process, how does it impact the timing of kanban cards showing in the production process?
 
 We may explore these questions on a later date, as they may add on to the discussion about Kanban systems. To the reader, I appreciate your time given to read this exploration, and I will see you on the next post!
