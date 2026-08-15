@@ -47,11 +47,11 @@ Since this factory employs a Kanban system, then it's true that each of the N ma
 
 + _<ins>Note</ins>: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period". Also, the words "card" or "cards" will refer to a "Kanban card" or "Kanban cards"._
 
-Let's allow **$`c_i`$** to be the number of cards that reveal as the $`i^{\text{th}}`$ type of material used over the time period, where i is a whole number greater than or equal to 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
+Let's allow **$`c_i`$** to be the number of cards that show the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than or equal to 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
 
 Once we have a card count for all N types of materials, then we can add all of the card counts to obtain a number K, which is the total number of cards shown during the running time. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
 
-Now, we have N types of materials that contribute to any of the possible processes in the factory as well as K total cards once the time interval passes. Since the cards signal consumption for each good, how many processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)?
+Now, the total K cards gives us a consumption notice of materials among the N types. Knowing this is crucial for counting possible demand results in the factory, especially since materials consumed in its processes indicate materials to be produced more of by the supplier. To find those demand results, we can ask "how many processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)"?
 
 ## Process Counting Reasoning <!-- Ponder on a another subtitle for this section -->
 If there is a specified number of total cards, like K = 4, then we want to know how many possible outcomes of processes will yield that specified number. We will treat the outcome of a process as the amount of  cards revealed for each type of material when the running time passes. 
@@ -92,7 +92,7 @@ $$\displaystyle{
 $$
 
 
-which is the sum of all possible expressions of the form <!-- Mathematical expression on page 15a -->$`\binom{c_1}{c_1} \cdot \binom{c_2}{c_2} \cdot \cdot \cdot \binom{c_N}{c_N}`$ where $`c_1`$, ... , $`c_N`$ are nonnegative integers and their sum equals K. 
+which is the sum of all possible expressions of the form <!-- Mathematical expression on page 15a -->$`\binom{c_1}{c_1} \cdot \binom{c_2}{c_2} \cdot \cdot \cdot \binom{c_N}{c_N}`$ where $`c_1`$, ... , $`c_N`$ are nonnegative whole numbers and their sum equals K. 
 
 The above expression is a general way of counting the possible number of process  outcomes given some usage of the types of materials. To make this expression a little more intuitive, interpreting an example will be helpful.
 
@@ -102,9 +102,11 @@ Say we have 4 Kanban cards show up among processes that have 3 materials availab
 
 One possible process can show 2 kanban cards for wood, 1 card for screws, and 1 card for paint. For this process, we can ask these questions for each group of kanban cards:
 
-- "How many ways can 2 identical, indistinguishable information cards for wood show up in a group of 2 to result in different production outcomes?"
-- "How many ways can 1 identical, indistinguishable information card for screws show up in a group of 1 to result in different production outcomes?"
-- "How many ways can 1 identical, indistinguishable information card for paint show up in a group of 1 to result in different production outcomes?
+- "How many ways can 2 information cards for wood show up in a group of 2 to result in different production outcomes?"
+- "How many ways can 1 information card for screws show up in a group of 1 to result in different production outcomes?"
+- "How many ways can 1 information card for paint show up in a group of 1 to result in different production outcomes?
+
+_Note: Remember! The information cards are identical and indistinguishable.__
 
 <!-- Mathematical jump again -->
 The answer to each of these questions is 1 way. 
