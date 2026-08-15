@@ -53,19 +53,19 @@ Once we have a card count for all N types of materials, then we can add all of t
 
 Now, the total K cards gives us a consumption notice of materials among the N types. Knowing this is crucial for counting possible demand results in the factory, especially since materials consumed in its processes indicate materials to be produced more of by the supplier. To find those demand results, we can ask "how many processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)"?
 
-## Process Counting Reasoning <!-- Ponder on a another subtitle for this section -->
+## Process Counting Reasoning
 If there is a specified number of total cards, like K = 4, then we want to know how many possible outcomes of processes will yield that specified number. We will treat the outcome of a process as the amount of  cards revealed for each type of material when the running time passes. 
 
 <!-- You must briefly, simply explain the combination concept and its notation BEFORE the next section.--->
 
 ### Counting Outcomes of One Process
-In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from good 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
+In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
 * The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 
 So, the total Kanban cards K can be split in N groups of card sizes $`c_1`$, ... , $`c_N`$. This represents the cards that are selected to be revealed in each bin for the types of materials.
 <!-- Math jump happens here without the combination explanation--->
-Then, to select $`c_i`$ identical cards for the bins of the $`i^{\text{th}}`$ type of material from the corresponding $`c_i`$ groups of cards such that they are indistinguishable, the number of ways to select the cards is $`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of material. 
+Then, to select $`c_i`$ cards for the bins of the $`i^{\text{th}}`$ type of material from the corresponding $`c_i`$ groups of cards, the number of ways to select the cards is $`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of material. 
 
 Consequently, to represent one outcome of a process, which is the distribution of cards among each material, we have  
 
@@ -106,7 +106,7 @@ One possible process can show 2 kanban cards for wood, 1 card for screws, and 1 
 - "How many ways can 1 information card for screws show up in a group of 1 to result in different production outcomes?"
 - "How many ways can 1 information card for paint show up in a group of 1 to result in different production outcomes?
 
-_Note: Remember! The information cards are identical and indistinguishable.__
+_Note: Remember! The information cards are identical and indistinguishable._
 
 <!-- Mathematical jump again -->
 The answer to each of these questions is 1 way. 
