@@ -58,7 +58,7 @@ If there is a specified number of total cards, like K = 4, then we want to know 
 
 <!-- You must briefly, simply explain the combination concept and its notation BEFORE the next section.--->
 
-### Counting of One Process
+### Counting Outcomes of One Process
 In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from good 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
 * The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
@@ -77,7 +77,7 @@ $$\displaystyle{
 
 as the number of ways to distribute K cards among N types of materials for the Kanban system for one process.
 
-### Counting of All Possible Processes
+### Counting Outcomes of All Possible Processes
 To count all possible process outcomes based on the total N materials in the factory, we must count all card placement scenarios where the sum of cards placed in the bins is K. This is can be found with following expression:  
 
 <!-- Mathematical Expression on page 15b -->
