@@ -62,9 +62,23 @@ If there is a specified number of total cards, like K = 4, then we want to know 
 In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
 * The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
+<!-- **This perspective will be important later in this section! (may include this)**-->
 
 So, the total Kanban cards K can be split in N groups of card sizes $`c_1`$, ... , $`c_N`$. This represents the cards that are selected to be revealed in each bin for the types of materials.
-<!-- Math jump happens here without the combination explanation--->
+<!-- Math jump happens here-->
+<!-- Solution to the jump below (1)-->
+
+With the card group sizes determined, we can count how many outcomes are possible for each card group of types of materials. In other words, we can count the possible card arrangements for each group of cards for the types of materials. 
+
+For the $`1^{\text{st}}`$ type of material with $`c_1`$ cards shown, the first card shown during the process running time can be any of the $`c_1`$ cards. So, the first card has $`c_1`$ possible outcomes. The second card shown during the running time can be any of $`c_1`$ cards in the group except the card shown for the first card. So, the second card has $`c_1 - 1`$ possible outcomes. The third card shown during the running time can be any of the $`c_1`$ cards in the group except for the cards shown for the first and second card. So, the third card has $`c_1 - 2`$ possible outcomes. Depending on how large the group of cards is for the $`1^{\text{st}}`$ type of material, this pattern will continue.
+
+For every one possible outcome of the first card, there is an outcome for the second card, as well as an outcome for the third card, which continues until there is only one card left to show as one possible result for the $`1^{\text{st}}`$ type of material. To count the number of outcomes of cards for the $`1^{\text{st}}`$ type of material, we can multiply the number of outcomes for each card together like so:
+
+<!-- Math expression RDedit6c1 -->.
+
+
+
+<!-- Solution finished-->
 Then, to select $`c_i`$ cards for the bins of the $`i^{\text{th}}`$ type of material from the corresponding $`c_i`$ groups of cards, the number of ways to select the cards is $`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of material. 
 
 Consequently, to represent one outcome of a process, which is the distribution of cards among each material, we have  
