@@ -1,8 +1,8 @@
-# Kanban Systems as a Display of Demand: A Combinatoric Perspective
-## Introducing the Kanban System
-In manufacturing, a Kanban system is a method of supplying materials by using an information card called a Kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
+# Kanban Systems as a Display of Demand: A Combinatorial Perspective
+## Introducing the Two-Bin Kanban System
+In manufacturing, a two-bin Kanban system is a method of supplying materials by using an information card called a Kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
 
-When manufacturing processes convert raw materials into finished goods, there are bins that hold the various materials. As processes run, those bins are eventually emptied. In a Kanban system, each bin holds an information card about the particular material. When an empty bin is sent to a supplier, the supplier knows to send a full bin of the material to the manufacturer based on the card's description. Once the full bin is sent, the supplier also knows to produce more of that same material to remain in stock. This way, when the manufacturer empties the next bin of the same material and orders more from the supplier, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the running time continues. 
+When manufacturing processes convert raw materials into finished goods, there are bins that hold the various materials. As processes run, those bins are eventually emptied. In this Kanban system, each bin holds an information card about the particular material. When an empty bin is sent to a supplier, the supplier knows to send a full bin of the material to the manufacturer based on the card's description. Once the full bin is sent, the supplier also knows to produce more of that same material to remain in stock. This way, when the manufacturer empties the next bin of the same material and orders more from the supplier, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the running time continues. 
 
 Below is a diagram to depict a bin's movement between the manufacturer and supplier in the Kanban system.
 <!-- As of August 2nd, 2026, nodes in differing subgraphs can link ONLY if the subgraphs have NO specified direction. -->
@@ -24,7 +24,7 @@ When a manufacturer employs this system in production, they
 - allow each process to have necessary materials for manufacturing.
 
 ## Question of Interest
-Since the Kanban card serves as a signal to the supplier that a particular material has been consumed and needs to be produced more of, we find that <!-- May become a quote later. I want to emphasize this point.-->consumption drives production through the Kanban card. The Kanban card also signals demand for a particular material because the material is actively being requested for the manufacturing process.
+Since the Kanban card serves as a signal to the supplier that a particular material has been consumed and needs to be produced more of, we find that consumption drives production through the Kanban card. The Kanban card also signals demand for a particular material because the material is actively being requested for the manufacturing process.
 
 + _**<ins>Note</ins>**: From here through the rest of the article, the mention of "**process**" refers to a **manufacturing process**: a line-up of tasks that directly convert raw materials into finished goods._
 
@@ -43,26 +43,26 @@ To delve into this question, let's establish some assumptions for our representa
 _**<ins>Note</ins>**: For assumption #1, it's important to mention that each type of material has differing attributes, no matter how similar they are. For example, a 4" by 4" by 10' plank of pressure treated wood is a different material than a 4" by 4" by 15' plank of pressure treated wood._
 
 ### Consequences of Assumptions
-Since this factory employs a Kanban system, then it's true that each of the N materials reveals a certain number of Kanban cards over the predetermined process running time period. 
+Since this factory employs a two-bin Kanban system, then it's true that each of the N materials reveals a certain number of Kanban cards over the predetermined process running time period.
 
 + _**<ins>Note</ins>**: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period". Also, the words "card" or "cards" will refer to a "Kanban card" or "Kanban cards"._
 
-Let's allow **$`c_i`$** to be the nonnegative number of cards that show the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
+Let's allow **$`c_i`$** to be the nonnegative number of cards that show from the use of the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
 
 Once we have a card count for all N types of materials, then we can add all of the card counts to obtain a number K, which is the total number of cards shown during the running time. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
 
 Now, the total K cards gives us a consumption notice of materials among the N types. Knowing this is crucial for counting possible demand results in the factory, especially since materials consumed in its processes indicate materials to be produced more of by the supplier. To find those demand results, we can ask "how many possible processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)"?
 
 ## Process Counting Reasoning
-If there is a specified number of total cards, like K = 4, then we want to know how many possible outcomes of processes will yield that specified number. We will define the outcome of a process to be the count of cards revealed for each type of material when the running time passes.
+If there is a specified number of total cards, like K = 4, then we want to know how many possible card configurations will yield that specified number. We will define a card configuration to be one collection of card counts revealed for each type of material when the running time passes.
 
-### Counting Outcomes of One Process
+### Counting One Card Configuration
 In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
 * The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 <!-- **This perspective will be important later in this section! (may include this)**-->
 
-Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as an outcome of one process. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below where one square represents a Kanban card.
+Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as a possible card configuration. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below where one square represents a Kanban card.
 
 $$
 \displaystyle
@@ -76,7 +76,7 @@ $$
 $$
 
 
-Placing a partition in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, we can let one group represent one type of material. To split the cards into N groups, we will need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
+Placing a separator in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, we can let one group represent one type of material. To split the cards into N groups, we will need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
 
 $$
 \displaystyle
@@ -90,12 +90,12 @@ $$
 $$
 + _**<ins>Note</ins>**: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which is makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
 
-Once the separators are placed, then we have a possible outcome of one process, which is one possible consumption distribution of cards.
+Once the separators are placed, then we have a possible card configuration, which is one possible consumption distribution of cards.
 
-### Counting All Possible Process Outcomes
-Depending on where the separators are placed between, we obtain differing group sizes for the N types of materials. If we count the number of ways that each one separator can be placed in spaces between the cards, then we also count the number of possible differing group sizes for each type of material where each group is greater than 0 (for now). In turn, we also count the number of possible process outcomes for a total of K cards.
+### Counting All Possible Card Configurations
+Depending on where the separators are placed between, we obtain differing group sizes for the N types of materials. If we count the number of ways that each one separator can be placed in spaces between the cards, then we also count the number of possible differing group sizes for each type of material where each group is greater than 0 (for now). In turn, we also count the number of possible card configurations for a total of K cards.
 
-Let's begin placing the separators! The $`1^{\text{st}}`$ separator has $`K - 1`$ possible locations for placement. The $`2^{\text{nd}}`$ separator has $`K - 2`$ possible locations for placement. This pattern continues through the $`(N - 1)^{\text{th}}`$ separator, which has $`K - (N - 1)`$ possible locations for placement. Since for every one placement of the $`1^{\text{st}}`$ separator, there are multiple placements for each of the other separators, the number of possible placement outcomes, and in turn process outcomes, is given by
+Let's begin placing the separators! The $`1^{\text{st}}`$ separator has $`K - 1`$ possible locations for placement. The $`2^{\text{nd}}`$ separator has $`K - 2`$ possible locations for placement. This pattern continues through the $`(N - 1)^{\text{th}}`$ separator, which has $`K - (N - 1)`$ possible locations for placement. Since for every one placement of the $`1^{\text{st}}`$ separator, there are multiple placements for each of the other separators, the number of possible placement outcomes, and in turn card configurations, is given by
 
 $$
 \displaystyle
@@ -110,7 +110,7 @@ $$
 \Box | \Box  /  \Box \quad \quad \Box  /  \Box | \Box
 $$
 
-With only the expression in (1.1), we will count process outcomes that have already been counted once. To avoid this, we must count the number of unique outcomes only. Since outcomes that present the same splitting arrangement are outcomes that have separators in the same location, we can count then number of ways separators can be placed into those locations to obtain the number of exact outcomes for every one unique outcome. 
+With only the expression in (1.1), we will count card configurations that have already been counted once. To avoid this, we must count the number of unique configurations only. Since configurations that present the same splitting arrangement are card outcomes that have separators in the same location, we can count then number of ways separators can be placed into those locations to obtain the number of exact outcomes for every one unique card configuration. 
 
 With that, let's count the repeated outcomes! For the $`1^{\text{st}}`$ location of the separator, any of the $`N - 1`$ separators can be placed there. So, there are $`N - 1`$ possible results for the $`1^{\text{st}}`$ location. For $`2^{\text{nd}}`$ location, any of the $`N - 1`$ separators can be placed there other than the separator already placed in the $`1^{\text{st}}`$ location. So, there are $`N - 2`$ possible results for the $`2^{\text{nd}}`$ location. This pattern continues until the $`(N - 1)^{\text{th}}`$ location for the separator, which has only one possible result for the location.
 
@@ -123,10 +123,10 @@ $$
 }
 $$
 
-exact outcomes for every one unique outcome.
+exact outcomes for every one unique card configuration.
 * _**<ins>Note</ins>**: The symbol "!" is called a "factorial". The above expression reads "N minus one factorial". A whole, positive number with a factorial is the product of the initial number to all smaller whole and positive numbers. (Ex. 4! = 4 * 3 * 2 * 1 = 24)_
 
-Because of this, dividing expressions (1.1) by (1.2) gives the number of unique outcomes for the manufacturing process during the process running time, as shown below.
+Because of this, dividing the expression (1.1) by (1.2) gives the number of unique configurations for the manufacturing process during the process running time, as shown below.
 
 $$
 \displaystyle
@@ -135,7 +135,7 @@ $$
 }
 $$
 
-By multiplying the expression $`\frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(N - 1)\big)!}`$ to (1.3), we can express the number of unique outcomes as 
+By multiplying the expression $`\frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(N - 1)\big)!}`$ to (1.3), we can express the number of unique configurations as 
 
 ---
 
@@ -159,7 +159,7 @@ $$
 \displaystyle
 {
   = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
-    \quad \quad \Big(\text{substitute }\big(K - (N - 1)\big) \text{ with }(K - N)\Big)
+    \quad \quad \Big(\text{substitute }\big((K - 1) - (N - 1)\big) \text{ with }(K - N)\Big)
 }
 $$
 
@@ -174,7 +174,7 @@ $$
 }
 $$
 
-in the numerator of our fraction. Since N is always less than K, the numerator is equal to $`(K - 1)!`$. From here, we arrive to the following expression for the number of unique process outcomes:
+in the numerator of our fraction. Since N is always less than or equal to K, the numerator is equal to $`(K - 1)!`$. From here, we arrive to the following expression for the number of unique card configurations:
 
 ---
 
@@ -195,7 +195,7 @@ $$
 $$
 \displaystyle
 {
-  = \frac{(K - 1)!}{(N - 1)! \cdot (K - N)!} \quad \quad \Big(\text{substitute }(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \text{ with }(K - N)\Big)
+  = \frac{(K - 1)!}{(N - 1)! \cdot (K - N)!} \quad \quad \Big(\text{substitute }(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \text{ with }(N - 1)!\Big)
 }
 $$
 
@@ -208,11 +208,11 @@ $$
 
 ---
 
-The final term representing the unique outcomes is called a combination, which in this case counts the number of process outcomes, or the ways to distribute the K cards among N types of materials. The combination can be read as "K minus one choose N minus 1". This combination is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers.
+The final term representing the unique configurations is our counting expression, which in this case counts the number of process outcomes, or the ways to distribute the K cards among N types of materials. The counting expression can be read as "K minus one choose N minus 1". This expression is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers.
 
-Now, remember in the beginning of the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" section where we said that each **$`c_i`$** term is a nonnegative whole number? We said this because not all types of material will have a card show in their group for all possible process outcomes. In other words, some **$`c_i`$** terms will equal 0. So, how can our current combination represent something that has group sizes of positive values AND the value zero (a.k.a nonnegative values)?
+Now, remember in the beginning of the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" section where we said that each **$`c_i`$** term is a nonnegative whole number? We said this because not all types of material will have a card show in their group for all possible card configurations. In other words, some **$`c_i`$** terms will equal 0. So, how can our current counting expression represent something that has group sizes of positive values AND the value zero (a.k.a nonnegative values)?
 
-Well, let's notice a few things about the our combination. First, our combination value for the unique process outcomes is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers. Second, since each **$`c_i`$** term from our original reasoning in the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" subsection is nonnegative, adding the value 1 to each of those terms will allow the nonnegative numbers to all be positive. 
+Well, let's notice a few things about the our counting expression. First, our expression for the unique card configurations is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers. Second, since each **$`c_i`$** term from our original reasoning in the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" subsection is nonnegative, adding the value 1 to each of those terms will allow the nonnegative numbers to all be positive. 
 
 So, if we make each **$`c_i`$** term in the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K a nonnegative number, and if we add one to each of the group sizes for the types of material in the equation, then we obtain the following:
 
@@ -235,7 +235,7 @@ $$
 }
 $$
 
-From here, we now have positive terms **$`S_i`$**, which have the same number of positive terms as the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K. As a result, the two equations describe that same types of values, which means that the nonnegative group sizes $`c_1`$, ... , $`c_N`$ correspond to the combination 
+From here, we now have positive terms **$`S_i`$**, which have the same number of positive terms as the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K. As a result, the two equations describe that same types of values, which means that the nonnegative group sizes $`c_1`$, ... , $`c_N`$ correspond to the counting expression 
 
 $$
 {\displaystyle
@@ -244,15 +244,15 @@ $$
   }
 }
 $$
-* _**<ins>Note</ins>**: Notice how "K + N" replaces the spot of "K" from the combination in_ (1.4).
+* _**<ins>Note</ins>**: Notice how "K + N" replaces the spot of "K" from the expression in_ (1.4).
 
-This combination gives the total count of unique process outcomes where card group sizes for the types of material can equal zero. To gain a more applied feel for this solution, let's approach an example. 
+This counting expression gives the total count of unique card configurations where card group sizes for the types of material can equal zero. To gain a more applied feel for this solution, let's approach an example. 
 
 ## Interpretation
 ### Example
 Say we have 4 Kanban cards show up among processes that have 3 materials available for use throughout the factory. These materials are wood, screws, and paint. How many possible distributions of Kanban cards among the 3 types of materials are there?
 
-First, let's imagine a few possible process outcomes among the 3 material types. Some processes outcomes and their card line-ups include:
+First, let's imagine a few possible card configurations from the described process among the 3 material types. Some outcomes and their card line-ups include:
 - 3 cards for wood, 1 card for screws, and 0 cards for paint
 
 $$
@@ -273,13 +273,13 @@ $$
 
 _**<ins>Note</ins>**: The circle_ ($`\circ`$) _represents a material showing no Kanban cards._
 
-Because K represents the total number of Kanban cards that show during the process time a N represents the number of types of material the factory has available for use, we can say that $`K = 4`$ and $`N = 3`$. Since some of the process outcomes have zero cards show for some of the types of materials, we know that the amount of cards for wood, screws, and paint are nonnegative. So, if $`w`$, $`s`$, and $`p`$ are the represent the count of cards that show for wood, screws, and paint respectively, then 
+Because K represents the total number of Kanban cards that show during the process time and N represents the number of types of material the factory has available for use, we can say that $`K = 4`$ and $`N = 3`$. Since some of the card configurations have zero cards to show for some of the types of materials, we know that the amount of cards for wood, screws, and paint are nonnegative. So, if $`w`$, $`s`$, and $`p`$ are to represent the count of cards that show for wood, screws, and paint respectively, then 
 
 $$
 \displaystyle{w + s + p = 4, \text{ where w, s, p }\geq 0 \text{.}}
 $$
 
-We also know that the information cards that show within the groups for the wood, screws, and paint are _identical_ and _indistinguishable_. With this information and the combination in expression (1.5), the combination below will result in the count of possible unique process outcomes.
+We also know that the information cards that show within the groups for the wood, screws, and paint are _identical_ and _indistinguishable_. With this information and the counting expression in (1.5), the expression below will result in the count of possible unique card configurations.
 
 $$
 \displaystyle
@@ -288,7 +288,7 @@ $$
   }
 $$
 
-The fraction notation for the combination results in the following:
+The fraction notation for the expression results in the following:
 
 $$
 \displaystyle
@@ -297,18 +297,20 @@ $$
   }
 $$
 
-There are 15 possible process outcomes in this Kanban system where 4 cards show among any of the 3 material types.
+There are 15 possible card configurations in this Kanban system where 4 cards show among any of the 3 material types.
 ### What does this mean?
-The resulting number from the combination with the chosen Kanban card total 4 is the total number of ways that wood, screws, and paint can be consumed given the predetermined process running time. Because the cards are signals of production, and consequently the requested demand for the materials, this result gives the total number of <ins>**possible demand structures**</ins> for the factory in their manufacturing process over the running time. 
+The resulting number from the expression with the chosen Kanban card total 4 is the total number of ways that wood, screws, and paint can be consumed given the predetermined process running time. Because the cards are signals of production, and consequently the requested demand for the materials, this result gives the total number of <ins>**possible demand structures**</ins> for the factory in their manufacturing process over the running time. 
 
 ### How can this be helpful?
-If a factory using a Kanban system knows what possible demand structures exist and how many, then decision-makers may be able to determine how likely it is for certain types of material to reach a certain consumption level during the running time period. When determining likelihoods of such consumption events, this calculation will determine the basis from which the events can come from, which is sometimes called the sample space for all possible events. Although I don't see how at the moment, the calculation may assist with predicting the requested demand of the types of goods before production processes begin.
+If a factory using a two-bin Kanban system knows what possible demand structures exist and how many, then decision-makers may be able to determine how likely it is for certain types of material to reach a certain consumption level during the running time period. Although I don't see how at the moment, our counting expression calculation may assist with predicting the requested demand of the types of goods before production processes begin. Probabilistic information on the each possible outcome of card arrangements in manufacturing processes would be helpful in prediction requested demand.
 
 ## Extending Questions
-The question we began exploration with is "How can a Kanban system be used to display possible structures of demand?". From previous observations, the Kanban system can be used to show possible displays of demand by counting the total number of ways a specific amount of Kanban cards can show up among all available types of material to be used in a factory. 
+The question we began exploration with is "How can a Kanban system be used to display possible structures of demand?". From previous observations, the Kanban system can be used to show possible make-ups of demand, considering all available materials within a factory, by counting the total number of ways a specific amount of Kanban cards can show up among all available types of material to be used in a factory. 
 
 - In this post, the Kanban system referred to is the two-bin system. However, during my reading, I found that there are many other types of Kanban systems like the Constant Work In Progress (CONWIP) system, the extended Kanban system, and the generalized Kanban system. How would the make-up of those systems change the make-up of our counting expression?
 
 - Also in my reading, I learned about something called the Economic Order Quantity, which is the amount of materials/parts a company may order to minimize the cost of storing them for production. When a company is finding this measurement for a particular process, how does it impact the timing of Kanban cards showing in the production process?
 
-We may explore these questions on a later date, as they may add on to the discussion about Kanban systems. To the reader, I appreciate your time given to read this exploration, and I will see you on the next post!
+- This representation does not consider the order of which the K cards distributed among the N groups appear during the manufacturing process. Considering the timing of cards revealing themselves during the time period, how would this representation change the number of possible card configurations?
+
+These questions can be explored on a later date, as they will add on to the discussion about Kanban systems. To the reader, I appreciate your time given to read this exploration, and I will see you on the next post!
