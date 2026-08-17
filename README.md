@@ -1,6 +1,6 @@
 # Kanban Systems as a Display of Demand: A Combinatorial Perspective
 ## Introducing the Two-Bin Kanban System
-In manufacturing, a two-bin Kanban system is a method of supplying materials by using an information card called a Kanban card as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
+In manufacturing, a two-bin Kanban system is a method of supplying materials by using an information card, called a Kanban card, as a signal to resupply a particular material. The word "kanban" means "signpost" in Japanese. 
 
 When manufacturing processes convert raw materials into finished goods, there are bins that hold the various materials. As processes run, those bins are eventually emptied. In this Kanban system, each bin holds an information card about the particular material. When an empty bin is sent to a supplier, the supplier knows to send a full bin of the material to the manufacturer based on the card's description. Once the full bin is sent, the supplier also knows to produce more of that same material to remain in stock. This way, when the manufacturer empties the next bin of the same material and orders more from the supplier, the supplier can send the manufacturer the full bin in exchange for the empty bin. This process then repeats itself as the running time continues. 
 
