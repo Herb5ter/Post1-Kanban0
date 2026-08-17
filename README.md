@@ -47,16 +47,14 @@ Since this factory employs a Kanban system, then it's true that each of the N ma
 
 + _<ins>Note</ins>: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period". Also, the words "card" or "cards" will refer to a "Kanban card" or "Kanban cards"._
 
-Let's allow **$`c_i`$** to be the number of cards that show the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than or equal to 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
+Let's allow **$`c_i`$** to be the nonnegative number of cards that show the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
 
 Once we have a card count for all N types of materials, then we can add all of the card counts to obtain a number K, which is the total number of cards shown during the running time. As an equation, this statement shows $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K.
 
-Now, the total K cards gives us a consumption notice of materials among the N types. Knowing this is crucial for counting possible demand results in the factory, especially since materials consumed in its processes indicate materials to be produced more of by the supplier. To find those demand results, we can ask "how many processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)"?
+Now, the total K cards gives us a consumption notice of materials among the N types. Knowing this is crucial for counting possible demand results in the factory, especially since materials consumed in its processes indicate materials to be produced more of by the supplier. To find those demand results, we can ask "how many possible processes will reveal a specific amount of cards (like 6 cards, or 21 cards, etc.)"?
 
 ## Process Counting Reasoning
-If there is a specified number of total cards, like K = 4, then we want to know how many possible outcomes of processes will yield that specified number. We will treat the outcome of a process as the amount of  cards revealed for each type of material when the running time passes. 
-
-<!-- You must briefly, simply explain the combination concept and its notation BEFORE the next section.--->
+If there is a specified number of total cards, like K = 4, then we want to know how many possible outcomes of processes will yield that specified number. We will define the outcome of a process to be the count of cards revealed for each type of material when the running time passes.
 
 ### Counting Outcomes of One Process
 In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
@@ -64,51 +62,24 @@ In the eyes of the supplier, the cards in the bins of each respective type of ma
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 <!-- **This perspective will be important later in this section! (may include this)**-->
 
-So, the total Kanban cards K can be split in N groups of card sizes $`c_1`$, ... , $`c_N`$. This represents the cards that are selected to be revealed in each bin for the types of materials.
-<!-- Math jump happens here-->
-<!-- Solution to the jump below (1)-->
+Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as an outcome of one process. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below.
 
-With the card group sizes determined, we can count how many outcomes are possible for each card group of types of materials. In other words, we can count the possible card arrangements for each group of cards for the types of materials. 
+<!-- Mermaid diagram here -->
+Placing a partition in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, we can let one group represent one type of material. To split the cards into N groups, we will need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
 
-For the $`1^{\text{st}}`$ type of material with $`c_1`$ cards shown, the first card shown during the process running time can be any of the $`c_1`$ cards. So, the first card has $`c_1`$ possible outcomes. The second card shown during the running time can be any of $`c_1`$ cards in the group except the card shown for the first card. So, the second card has $`c_1 - 1`$ possible outcomes. The third card shown during the running time can be any of the $`c_1`$ cards in the group except for the cards shown for the first and second card. So, the third card has $`c_1 - 2`$ possible outcomes. Depending on how large the group of cards is for the $`1^{\text{st}}`$ type of material, this pattern will continue.
+<!--- Try Latex Here for this diagram -->
++ _Note: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which is makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
 
-For every one possible outcome of the first card, there is an outcome for the second card, as well as an outcome for the third card, which continues until there is only one card left to show as one possible result for the $`1^{\text{st}}`$ type of material. To count the number of outcomes of cards for the $`1^{\text{st}}`$ type of material, we can multiply the number of outcomes for each card together like so:
+Once the separators are placed, then we have a possible outcome of one process, which is one possible consumption distribution of cards.
 
-<!-- Math expression RDedit6c1 -->.
+### Counting All Possible Process Outcomes
+Depending on where the separators are placed between, we obtain differing group sizes for the N types of materials. If we count the number of ways that each one separator can be placed in spaces between the cards, then we also count the number of possible differing group sizes for each type of material where each group is greater than 0 (for now). In turn, we also count the number of possible process outcomes for a total of K cards.
 
+Let's begin placing the separators. The $`1^{\text{st}}`$ separator has $`K - 1`$ possible locations for placement. The $`2^{\text{nd}}`$ separator has $`K - 2`$ possible locations for placement. This pattern continues through the $`(N - 1)^{\text{th}}`$ separator, which has $`K - (N - 1)`$ possible locations for placement. Since for every one placement of the $`1^{\text{st}}`$ separator, there are multiple placements for each of the other separators, the number of possible placement outcomes, and in turn process outcomes, is given by
 
+<!-- OA here --->
 
-<!-- Solution finished-->
-Then, to select $`c_i`$ cards for the bins of the $`i^{\text{th}}`$ type of material from the corresponding $`c_i`$ groups of cards, the number of ways to select the cards is $`\binom{c_i}{c_i}`$ for each bin of the $`i^{\text{th}}`$ type of material. 
-
-Consequently, to represent one outcome of a process, which is the distribution of cards among each material, we have  
-
-<!-- Mathematical expression on page 15a --> 
-$$\displaystyle{
-    \binom{c_1}{c_1} 
-    \cdot \binom{c_2}{c_2} 
-    \cdot \cdot \cdot \binom{c_N}{c_N}}$$  
-
-as the number of ways to distribute K cards among N types of materials for the Kanban system for one process.
-
-### Counting Outcomes of All Possible Processes
-To count all possible process outcomes based on the total N materials in the factory, we must count all card placement scenarios where the sum of cards placed in the bins is K. This is can be found with following expression:  
-
-<!-- Mathematical Expression on page 15b -->
-$$\displaystyle{
-    \sum_{
-    \substack{(c_1,c_2, \dots ,c_N): \\
-    c_1 + c_2 + \text{...} + c_N = K}}
-    \binom{c_1}{c_1} 
-    \cdot \binom{c_2}{c_2} 
-    \cdot \cdot \cdot \binom{c_N}{c_N}_\text{,}
-    }
-$$
-
-
-which is the sum of all possible expressions of the form <!-- Mathematical expression on page 15a -->$`\binom{c_1}{c_1} \cdot \binom{c_2}{c_2} \cdot \cdot \cdot \binom{c_N}{c_N}`$ where $`c_1`$, ... , $`c_N`$ are nonnegative whole numbers and their sum equals K. 
-
-The above expression is a general way of counting the possible number of process  outcomes given some usage of the types of materials. To make this expression a little more intuitive, interpreting an example will be helpful.
+Now, since each separator has no distinction from the others despite their location of placement, <!-- Pick up Here after break-->
 
 ## Interpretation
 ### Example
