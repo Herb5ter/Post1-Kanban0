@@ -62,7 +62,7 @@ In the eyes of the supplier, the cards in the bins of each respective type of ma
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 <!-- **This perspective will be important later in this section! (may include this)**-->
 
-Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as a possible card configuration. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below where one square represents a Kanban card.
+Viewing from the supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as a possible card configuration. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below where one square represents a Kanban card.
 
 $$
 \displaystyle
@@ -76,7 +76,7 @@ $$
 $$
 
 
-Placing a separator in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, we can let one group represent one type of material. To split the cards into N groups, we will need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
+Placing a separator in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, then we can let one group represent one type of material. To split the cards into N groups, we need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
 
 $$
 \displaystyle
@@ -88,9 +88,9 @@ $$
 $$
 \text {K cards ( }\Box \text{ ), N groups or material types, and (N - 1) separators ( | )}
 $$
-+ _**<ins>Note</ins>**: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which is makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
++ _**<ins>Note</ins>**: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
 
-Once the separators are placed, then we have a possible card configuration, which is one possible consumption distribution of cards.
+Once the separators are placed, we have a possible card configuration, which is one possible consumption distribution of cards.
 
 ### Counting All Possible Card Configurations
 Depending on where the separators are placed between, we obtain differing group sizes for the N types of materials. If we count the number of ways that each one separator can be placed in spaces between the cards, then we also count the number of possible differing group sizes for each type of material where each group is greater than 0 (for now). In turn, we also count the number of possible card configurations for a total of K cards.
@@ -100,26 +100,26 @@ Let's begin placing the separators! The $`1^{\text{st}}`$ separator has $`K - 1`
 $$
 \displaystyle
 {
-  (K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \quad \quad \quad \text{ (1.1)}
+  (K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \text{.} \quad \quad \quad \text{ (1.1)}
 }
 $$
 
-Now, since each separator has no distinction from the others despite their location of placement, there will be different outcomes that have the exact same card distribution among the types of material groups. An example of this is below for a process outcome with 3 total cards and 3 types of materials. Notice how the switch in separators, where one separator is a vertical bar "|" and another is a forward slash "/", creates the same splitting arrangement of cards.
+Now, since each separator has no distinction from the others despite their location of placement, there will be different outcomes that have the exact same card distribution among the types of material groups. An example of this is below for a card configuration with 3 total cards split among 3 types of materials. Notice how the switch in separators, where one separator is a vertical bar "|" and another is a forward slash "/", creates the same splitting arrangement of cards.
 
 $$
 \Box | \Box  /  \Box \quad \quad \Box  /  \Box | \Box
 $$
 
-With only the expression in (1.1), we will count card configurations that have already been counted once. To avoid this, we must count the number of unique configurations only. Since configurations that present the same splitting arrangement are card outcomes that have separators in the same location, we can count then number of ways separators can be placed into those locations to obtain the number of exact outcomes for every one unique card configuration. 
+With only the expression in (1.1), we will count card configurations that have already been counted once. To avoid this, we must count the number of unique configurations only. Since configurations that present the same splitting arrangement are card outcomes that have separators in the same location, we can count the number of ways separators can be placed into those locations to obtain the number of exact outcomes for every one unique card configuration. 
 
-With that, let's count the repeated outcomes! For the $`1^{\text{st}}`$ location of the separator, any of the $`N - 1`$ separators can be placed there. So, there are $`N - 1`$ possible results for the $`1^{\text{st}}`$ location. For $`2^{\text{nd}}`$ location, any of the $`N - 1`$ separators can be placed there other than the separator already placed in the $`1^{\text{st}}`$ location. So, there are $`N - 2`$ possible results for the $`2^{\text{nd}}`$ location. This pattern continues until the $`(N - 1)^{\text{th}}`$ location for the separator, which has only one possible result for the location.
+With that, let's count the number of exact outcomes! For the $`1^{\text{st}}`$ location of the separator, any of the $`N - 1`$ separators can be placed there. So, there are $`N - 1`$ possible results for the $`1^{\text{st}}`$ location. For $`2^{\text{nd}}`$ location, any of the $`N - 1`$ separators can be placed there other than the separator already placed in the $`1^{\text{st}}`$ location. So, there are $`N - 2`$ possible results for the $`2^{\text{nd}}`$ location. This pattern continues until the $`(N - 1)^{\text{th}}`$ location for the separator, which has only one possible result for the location.
 
 We find that there are
 
 $$
 \displaystyle
 {
-  (N - 1) \cdot (N - 2) \cdots (2) \cdot (1) \quad \quad \quad \text{(1.2)}
+  (N - 1) \cdot (N - 2) \cdots (2) \cdot (1) = (N - 1)! \quad \quad \quad \text{(1.2)}
 }
 $$
 
@@ -131,7 +131,7 @@ Because of this, dividing the expression (1.1) by (1.2) gives the number of uniq
 $$
 \displaystyle
 {
-  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdots (N - 2) \cdots (2) \cdot (1)} \quad \quad \quad \text(1.3)
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdot (N - 2) \cdots (2) \cdot (1)} \quad \quad \quad \text(1.3)
 }
 $$
 
@@ -142,7 +142,7 @@ By multiplying the expression $`\frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(
 $$
 \displaystyle
 {
-  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1)}
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdot (N - 2) \text{  } \cdots \text{  }(2) \cdot (1)}
   \cdot 
   \frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(N - 1)\big)!}
 }
@@ -151,21 +151,21 @@ $$
 $$
 \displaystyle
 {
-  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot \big((K - 1)-(N - 1)\big)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot \big((K - 1)-(N - 1)\big)!}
+  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot \big((K - 1)-(N - 1)\big)!}{(N - 1) \cdot (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot \big((K - 1)-(N - 1)\big)!}
 }
 $$
 
 $$
 \displaystyle
 {
-  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdot (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
     \quad \quad \Big(\text{substitute }\big((K - 1) - (N - 1)\big) \text{ with }(K - N)\Big)
 }
 $$
 
 ---
 
-Since $`(K - N)! = (K - N) \cdot (K - N - 1) \cdot (K - N - 2) \cdots (K - K + 2) \cdot (K - K + 1)`$, we then have 
+Since $`(K - N)! = (K - N) \cdot (K - N - 1) \cdot (K - N - 2) \cdots (K - K + 2) \cdot (K - K + 1)`$, the numerator of expression (1.3) becomes 
 
 $$
 \displaystyle
@@ -174,21 +174,21 @@ $$
 }
 $$
 
-in the numerator of our fraction. Since N is always less than or equal to K, the numerator is equal to $`(K - 1)!`$. From here, we arrive to the following expression for the number of unique card configurations:
+for our fraction. Since each N group has at least one card in it, which makes N is always less than or equal to K, the numerator fits the definition of $`(K - 1)!`$. From here, we arrive to the following expression for the number of unique card configurations:
 
 ---
 
 $$
 \displaystyle
 {
-  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdot (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
 }
 $$
 
 $$
 \displaystyle
 {
-  = \frac{(K - 1)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+  = \frac{(K - 1)!}{(N - 1) \cdot (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
 }
 $$
 
@@ -235,7 +235,7 @@ $$
 }
 $$
 
-From here, we now have positive terms **$`S_i`$**, which have the same number of positive terms as the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K. As a result, the two equations describe that same types of values, which means that the nonnegative group sizes $`c_1`$, ... , $`c_N`$ correspond to the counting expression 
+From here, we now have positive terms **$`S_i`$**, which have the same number of positive $`c_i`$ terms as the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K. As a result, the two equations describe the same types of values, which means that the nonnegative group sizes $`c_1`$, ... , $`c_N`$ correspond to the counting expression 
 
 $$
 {\displaystyle
@@ -252,28 +252,28 @@ This counting expression gives the total count of unique card configurations whe
 ### Example
 Say we have 4 Kanban cards show up among processes that have 3 materials available for use throughout the factory. These materials are wood, screws, and paint. How many possible distributions of Kanban cards among the 3 types of materials are there?
 
-First, let's imagine a few possible card configurations from the described process among the 3 material types. Some outcomes and their card line-ups include:
+First, let's imagine a few possible card configurations from the described situation among the 3 material types. Some outcomes and their card line-ups include:
 - 3 cards for wood, 1 card for screws, and 0 cards for paint
 
 $$
 \Box \Box \Box | \Box | \circ
 $$
 
-- 1 card for wood, 2 cards for screws, and 1 card for paint <!-- Include picture -->
+- 1 card for wood, 2 cards for screws, and 1 card for paint
 
 $$
 \Box | \Box \Box | \Box
 $$
 
-- 0 cards for wood, 0 cards for screws, and 4 cards for paint <!-- Include picture -->
+- 0 cards for wood, 0 cards for screws, and 4 cards for paint 
 
 $$
 \circ | \circ | \Box \Box \Box \Box
 $$
 
-_**<ins>Note</ins>**: The circle_ ($`\circ`$) _represents a material showing no Kanban cards._
+_**<ins>Note</ins>**: The circle_ ($`\circ`$) _represents a material type showing no Kanban cards._
 
-Because K represents the total number of Kanban cards that show during the process time and N represents the number of types of material the factory has available for use, we can say that $`K = 4`$ and $`N = 3`$. Since some of the card configurations have zero cards to show for some of the types of materials, we know that the amount of cards for wood, screws, and paint are nonnegative. So, if $`w`$, $`s`$, and $`p`$ are to represent the count of cards that show for wood, screws, and paint respectively, then 
+Because K represents the total number of Kanban cards that show during the process time and N represents the number of types of material the factory has available for use, we can say that $`K = 4`$ and $`N = 3`$. Since some of the card configurations have zero cards to show for some of the types of materials, we know that the amount of cards for wood, screws, and paint are nonnegative. So, if $`w`$, $`s`$, and $`p`$ represent the count of cards that show for wood, screws, and paint respectively, then 
 
 $$
 \displaystyle{w + s + p = 4, \text{ where w, s, p }\geq 0 \text{.}}
@@ -302,15 +302,15 @@ There are 15 possible card configurations in this Kanban system where 4 cards sh
 The resulting number from the expression with the chosen Kanban card total 4 is the total number of ways that wood, screws, and paint can be consumed given the predetermined process running time. Because the cards are signals of production, and consequently the requested demand for the materials, this result gives the total number of <ins>**possible demand structures**</ins> for the factory in their manufacturing process over the running time. 
 
 ### How can this be helpful?
-If a factory using a two-bin Kanban system knows what possible demand structures exist and how many, then decision-makers may be able to determine how likely it is for certain types of material to reach a certain consumption level during the running time period. Although I don't see how at the moment, our counting expression calculation may assist with predicting the requested demand of the types of goods before production processes begin. Probabilistic information on the each possible outcome of card arrangements in manufacturing processes would be helpful in prediction requested demand.
+If a factory using a two-bin Kanban system knows what possible demand structures exist and how many, then decision-makers may be able to determine how likely it is for certain types of material to reach a certain consumption level during the running time period. Although I don't see how at the moment, our counting expression calculation may assist with predicting the requested demand of the types of goods before production processes begin. Probabilistic information on the each possible outcome of card arrangements in manufacturing processes would be helpful in predicting requested demand. Nevertheless, our counting expression establishes a method for numbering all possible card arrangements based on available materials.
 
 ## Extending Questions
-The question we began exploration with is "How can a Kanban system be used to display possible structures of demand?". From previous observations, the Kanban system can be used to show possible make-ups of demand, considering all available materials within a factory, by counting the total number of ways a specific amount of Kanban cards can show up among all available types of material to be used in a factory. 
+The question that started this exploration is "How can a Kanban system be used to display possible structures of demand?". From previous observations, the Kanban system can be used to show possible make-ups of demand, considering all available materials within a factory, by counting the total number of ways a specific amount of Kanban cards can show up among all available types of material to be used in a factory. 
 
 - In this post, the Kanban system referred to is the two-bin system. However, during my reading, I found that there are many other types of Kanban systems like the Constant Work In Progress (CONWIP) system, the extended Kanban system, and the generalized Kanban system. How would the make-up of those systems change the make-up of our counting expression?
 
 - Also in my reading, I learned about something called the Economic Order Quantity, which is the amount of materials/parts a company may order to minimize the cost of storing them for production. When a company is finding this measurement for a particular process, how does it impact the timing of Kanban cards showing in the production process?
 
-- This representation does not consider the order of which the K cards distributed among the N groups appear during the manufacturing process. Considering the timing of cards revealing themselves during the time period, how would this representation change the number of possible card configurations?
+- Speaking of timing, this representation does not consider the order of which the K cards distributed among the N groups appear during the manufacturing process. Considering the timing of cards revealing themselves during the time period, how would this representation change the number of possible card configurations?
 
 These questions can be explored on a later date, as they will add on to the discussion about Kanban systems. To the reader, I appreciate your time given to read this exploration, and I will see you on the next post!
