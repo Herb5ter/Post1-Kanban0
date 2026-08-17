@@ -57,7 +57,7 @@ Now, the total K cards gives us a consumption notice of materials among the N ty
 If there is a specified number of total cards, like K = 4, then we want to know how many possible card configurations will yield that specified number. We will define a card configuration to be one collection of card counts revealed for each type of material when the running time passes.
 
 ### Counting One Card Configuration
-In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed from material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
+In the eyes of the supplier, the cards in the bins of each respective type of material (Ex. if 3 cards are revealed for material 4) are <ins>identical</ins> and <ins>indistinguishable</ins>.
 * The cards are <ins>identical</ins> because the information on the cards for the material are about the same type of material. Each card is the same!
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 <!-- **This perspective will be important later in this section! (may include this)**-->
