@@ -26,7 +26,7 @@ When a manufacturer employs this system in production, they
 ## Question of Interest
 Since the Kanban card serves as a signal to the supplier that a particular material has been consumed and needs to be produced more of, we find that <!-- May become a quote later. I want to emphasize this point.-->consumption drives production through the Kanban card. The Kanban card also signals demand for a particular material because the material is actively being requested for the manufacturing process.
 
-+ _<ins>Note</ins>: From here through the rest of the article, the mention of "**process**" refers to a **manufacturing process**: a line-up of tasks that directly convert raw materials into finished goods._
++ _**<ins>Note</ins>**: From here through the rest of the article, the mention of "**process**" refers to a **manufacturing process**: a line-up of tasks that directly convert raw materials into finished goods._
 
 Now, because a manufacturing facility may have multiple processes running at one time, it is possible that there are various scenarios of Kanban cards to be revealed for their respective materials. To better prepare for those scenarios, a facility may desire to know the possible structures of demand to encounter given the materials involved in each process. Knowing this requires us to ask this question:
 
@@ -40,12 +40,12 @@ To delve into this question, let's establish some assumptions for our representa
 3. Let's also assume that each process runs for the same predetermined process running time period, which is in some amount of hours, minutes, and seconds.
 4. As each process empties bins for each material, assume that it has a full bin ready to be used (or drawn from) and the empty bin is immediately sent to the supplier.
 
-_<ins>Note</ins>: For assumption #1, it's important to mention that each type of material has differing attributes, no matter how similar they are. For example, a 4" by 4" by 10' plank of pressure treated wood is a different material than a 4" by 4" by 15' plank of pressure treated wood._
+_**<ins>Note</ins>**: For assumption #1, it's important to mention that each type of material has differing attributes, no matter how similar they are. For example, a 4" by 4" by 10' plank of pressure treated wood is a different material than a 4" by 4" by 15' plank of pressure treated wood._
 
 ### Consequences of Assumptions
 Since this factory employs a Kanban system, then it's true that each of the N materials reveals a certain number of Kanban cards over the predetermined process running time period. 
 
-+ _<ins>Note</ins>: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period". Also, the words "card" or "cards" will refer to a "Kanban card" or "Kanban cards"._
++ _**<ins>Note</ins>**: From now on, the words "running time", "time interval", or "time period" will refer to the "predetermined process running time period". Also, the words "card" or "cards" will refer to a "Kanban card" or "Kanban cards"._
 
 Let's allow **$`c_i`$** to be the nonnegative number of cards that show the $`i^{\text{th}}`$ type of material during the time period, where $`i`$ is a whole number greater than 0 and less than or equal to N. (*Ex. If a 1/4' standard washer is material 1, and 5 cards show during the time period, then $`c_1`$ = 5 represents the Kanban cards for this particular washer during the time period.*)
 
@@ -62,13 +62,33 @@ In the eyes of the supplier, the cards in the bins of each respective type of ma
 * The cards are <ins>indistinguishable</ins> because they can be switched around to appear in any order during the time period and the message to the supplier is to produce more of that type of material. No matter the order in which they appear to the supplier, the message to the supplier is the same!
 <!-- **This perspective will be important later in this section! (may include this)**-->
 
-Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as an outcome of one process. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below.
+Viewing from supplier's perspective of the cards, once the total K cards are split into the N groups of sizes $`c_1`$, ... , $`c_N`$ for the types of materials, we are able to count that splitting arrangement as an outcome of one process. If we begin with a line-up of all K cards, we can see that there are $`K - 1`$ spaces in-between the K cards, as shown below where one square represents a Kanban card.
 
-<!-- Mermaid diagram here -->
+$$
+\displaystyle
+{
+  \Box \quad \Box \quad \dots \quad \Box \quad \Box 
+}
+$$
+
+$$
+\text{K cards}
+$$
+
+
 Placing a partition in one of the spaces allows us to divide the K cards into smaller groups. If there are N types of material, we can let one group represent one type of material. To split the cards into N groups, we will need $`N - 1`$ separators between the $`c_1`$, ... , $`c_N`$ groups. This is shown below.
 
-<!--- Try Latex Here for this diagram -->
-+ _Note: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which is makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
+$$
+\displaystyle
+{
+  \Box \cdots \Box | \Box \cdots \Box | \cdots | \Box \cdots \Box
+}
+$$
+
+$$
+\text {K cards ( }\Box \text{ ), N groups or material types, and (N - 1) separators ( | )}
+$$
++ _**<ins>Note</ins>**: Applying $`N - 1`$ separators to the total cards assumes that the sizes of each group are greater than 0, which is makes the values $`c_1`$, ... , $`c_N`$ not nonnegative, but only positive. For now, this assumption is necessary since it is easier to count groups that have cards in them compared to empty groups. This restriction will be relaxed later._
 
 Once the separators are placed, then we have a possible outcome of one process, which is one possible consumption distribution of cards.
 
@@ -80,13 +100,15 @@ Let's begin placing the separators! The $`1^{\text{st}}`$ separator has $`K - 1`
 $$
 \displaystyle
 {
-  (K - 1) \cdot (K - 2) \cdots (K - (N - 1)) \quad \quad \quad \text{ (1.1)}
+  (K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \quad \quad \quad \text{ (1.1)}
 }
 $$
 
-Now, since each separator has no distinction from the others despite their location of placement, there will be different outcomes that have the exact same card distribution among the types of material groups. An example of this is below for a process outcome with 3 total cards and 3 types of materials. Notice how the switch in separators creates the same splitting arrangement of cards.
+Now, since each separator has no distinction from the others despite their location of placement, there will be different outcomes that have the exact same card distribution among the types of material groups. An example of this is below for a process outcome with 3 total cards and 3 types of materials. Notice how the switch in separators, where one separator is a vertical bar "|" and another is a forward slash "/", creates the same splitting arrangement of cards.
 
-<!-- Example here -->
+$$
+\Box | \Box  /  \Box \quad \quad \Box  /  \Box | \Box
+$$
 
 With only the expression in (1.1), we will count process outcomes that have already been counted once. To avoid this, we must count the number of unique outcomes only. Since outcomes that present the same splitting arrangement are outcomes that have separators in the same location, we can count then number of ways separators can be placed into those locations to obtain the number of exact outcomes for every one unique outcome. 
 
@@ -100,41 +122,129 @@ $$
   (N - 1) \cdot (N - 2) \cdots (2) \cdot (1) \quad \quad \quad \text{(1.2)}
 }
 $$
-* _Note: The symbol "!" is called a "factorial". The above expression reads "N minus one factorial". A whole, positive number with a factorial is the product of the initial number to all smaller whole and positive numbers. Ex. $`4! = 4 * 3 * 2 * 1 = 24`$_
-exact outcomes for every one unique outcome. Because of this, dividing expressions (1.1) by (1.2) gives the number of unique outcomes for the manufacturing process during the process running time, as shown below.
+
+exact outcomes for every one unique outcome.
+* _**<ins>Note</ins>**: The symbol "!" is called a "factorial". The above expression reads "N minus one factorial". A whole, positive number with a factorial is the product of the initial number to all smaller whole and positive numbers. (Ex. 4! = 4 * 3 * 2 * 1 = 24)_
+
+Because of this, dividing expressions (1.1) by (1.2) gives the number of unique outcomes for the manufacturing process during the process running time, as shown below.
 
 $$
 \displaystyle
 {
-  \frac{(K - 1) \cdot (K - 2) \cdots (K - (N - 1))}{(N - 1) \cdots (N - 2) \cdots (2) \cdot (1)}
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdots (N - 2) \cdots (2) \cdot (1)} \quad \quad \quad \text(1.3)
 }
 $$
 
-By multiplying the expression $`\frac{((K - 1)-(N - 1))!}{(K - 1)-(N - 1))!}`$ to <!-- Figure 3-->, we can express the number of unique outcomes as 
+By multiplying the expression $`\frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(N - 1)\big)!}`$ to (1.3), we can express the number of unique outcomes as 
 
-<!-- Fraction Combination form - Pick back up HERE -->.
+---
 
-The final term representing the unique outcomes is called a combination, which in this case counts the number of process outcomes, or the ways to distribute the K cards among N types of materials. The combination can be read as "K minus one choose N minus 1". This number is given when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers.
+$$
+\displaystyle
+{
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big)}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1)}
+  \cdot 
+  \frac{\big((K - 1)-(N - 1)\big)!}{\big((K - 1)-(N - 1)\big)!}
+}
+$$
 
-Now, remember in the beginning of the "Consequences of Assumptions"<!-- Link to subsection here --> section where we said that each **$`c_i`$** term is a nonnegative whole number? We said this because not all types of material will have a card show in their group for all possible process outcomes. In other words, some **$`c_i`$** terms will equal 0. So, how can our current combination represent something that has group sizes of positive values AND the value zero (a.k.a nonnegative values)?
+$$
+\displaystyle
+{
+  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot \big((K - 1)-(N - 1)\big)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot \big((K - 1)-(N - 1)\big)!}
+}
+$$
 
-Well, let's notice a few things about the our combination. First, our combination value for the unique process outcomes is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers. Second, since each **$`c_i`$** term from our original reasoning in the "Consequences of Assumptions"<!-- Link to subsection here --> subsection is nonnegative, adding the value 1 to each of those terms will allow the nonnegative numbers to all be positive. 
+$$
+\displaystyle
+{
+  = \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+    \quad \quad \Big(\text{substitute }\big(K - (N - 1)\big) \text{ with }(K - N)\Big)
+}
+$$
+
+---
+
+Since $`(K - N)! = (K - N) \cdot (K - N - 1) \cdot (K - N - 2) \cdots (K - K + 2) \cdot (K - K + 1)`$, we then have 
+
+$$
+\displaystyle
+{
+  (K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N) \cdot (K - N - 1) \cdot (K - N - 2) \cdots (K - K + 2) \cdot (K - K + 1)
+}
+$$
+
+in the numerator of our fraction. Since N is always less than K, the numerator is equal to $`(K - 1)!`$. From here, we arrive to the following expression for the number of unique process outcomes:
+
+---
+
+$$
+\displaystyle
+{
+  \frac{(K - 1) \cdot (K - 2) \cdots \big(K - (N - 1)\big) \cdot (K - N)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+}
+$$
+
+$$
+\displaystyle
+{
+  = \frac{(K - 1)!}{(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \cdot (K - N)!}
+}
+$$
+
+$$
+\displaystyle
+{
+  = \frac{(K - 1)!}{(N - 1)! \cdot (K - N)!} \quad \quad \Big(\text{substitute }(N - 1) \cdots (N - 2) \text{  } \cdots \text{  }(2) \cdot (1) \text{ with }(K - N)\Big)
+}
+$$
+
+$$
+\displaystyle
+{
+  = \binom{K - 1}{N - 1} \quad \text{(1.4)}
+}
+$$
+
+---
+
+The final term representing the unique outcomes is called a combination, which in this case counts the number of process outcomes, or the ways to distribute the K cards among N types of materials. The combination can be read as "K minus one choose N minus 1". This combination is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers.
+
+Now, remember in the beginning of the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" section where we said that each **$`c_i`$** term is a nonnegative whole number? We said this because not all types of material will have a card show in their group for all possible process outcomes. In other words, some **$`c_i`$** terms will equal 0. So, how can our current combination represent something that has group sizes of positive values AND the value zero (a.k.a nonnegative values)?
+
+Well, let's notice a few things about the our combination. First, our combination value for the unique process outcomes is true when $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K where $`c_1`$, ... , $`c_N`$ are positive numbers. Second, since each **$`c_i`$** term from our original reasoning in the "[Consequences of Assumptions](https://github.com/Herb5ter/Post1-Kanban0/edit/post1-RDedit/README.md#consequences-of-assumptions)" subsection is nonnegative, adding the value 1 to each of those terms will allow the nonnegative numbers to all be positive. 
 
 So, if we make each **$`c_i`$** term in the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K a nonnegative number, and if we add one to each of the group sizes for the types of material in the equation, then we obtain the following:
 
-<!-- K + N equation -->
+$$
+\displaystyle
+{
+  c_1 + c_2 + \dots + c_N = K
+}
+$$
+$$
+\displaystyle
+{
+  (c_1 + 1) + (c_2 + 1) + \dots + (c_N + 1) = K + N \quad \quad \text{(add N ones to both sides of equation)}
+}
+$$
+$$
+\displaystyle
+{
+  S_1 + S_2 + \dots + S_N = K + N, \quad \quad \text{ where } S_i = c_i + 1 \text{ and } 0 \text{ } \textless \text{ } i \text{ } \leq N
+}
+$$
 
 From here, we now have positive terms **$`S_i`$**, which have the same number of positive terms as the equation $`c_1`$ + $`c_2`$ + ... + $`c_N`$ = K. As a result, the two equations describe that same types of values, which means that the nonnegative group sizes $`c_1`$, ... , $`c_N`$ correspond to the combination 
 
 $$
 {\displaystyle
   {
-    \binom{K + N - 1}{N - 1}
+    \binom{K + N - 1}{N - 1} \quad \text{(1.5)}
   }
-  \text{(Figure 5)}
 }
 $$
-* _Note: Notice how "K + N" replaces the spot of "K" from the combination in Figure 4._
+* _**<ins>Note</ins>**: Notice how "K + N" replaces the spot of "K" from the combination in_ (1.4).
 
 This combination gives the total count of unique process outcomes where card group sizes for the types of material can equal zero. To gain a more applied feel for this solution, let's approach an example. 
 
@@ -143,9 +253,25 @@ This combination gives the total count of unique process outcomes where card gro
 Say we have 4 Kanban cards show up among processes that have 3 materials available for use throughout the factory. These materials are wood, screws, and paint. How many possible distributions of Kanban cards among the 3 types of materials are there?
 
 First, let's imagine a few possible process outcomes among the 3 material types. Some processes outcomes and their card line-ups include:
-- 3 cards for wood, 1 card for screws, and 0 cards for paint <!-- Include picture -->
+- 3 cards for wood, 1 card for screws, and 0 cards for paint
+
+$$
+\Box \Box \Box | \Box | \circ
+$$
+
 - 1 card for wood, 2 cards for screws, and 1 card for paint <!-- Include picture -->
+
+$$
+\Box | \Box \Box | \Box
+$$
+
 - 0 cards for wood, 0 cards for screws, and 4 cards for paint <!-- Include picture -->
+
+$$
+\circ | \circ | \Box \Box \Box \Box
+$$
+
+_**<ins>Note</ins>**: The circle_ ($`\circ`$) _represents a material showing no Kanban cards._
 
 Because K represents the total number of Kanban cards that show during the process time a N represents the number of types of material the factory has available for use, we can say that $`K = 4`$ and $`N = 3`$. Since some of the process outcomes have zero cards show for some of the types of materials, we know that the amount of cards for wood, screws, and paint are nonnegative. So, if $`w`$, $`s`$, and $`p`$ are the represent the count of cards that show for wood, screws, and paint respectively, then 
 
@@ -153,7 +279,7 @@ $$
 \displaystyle{w + s + p = 4, \text{ where w, s, p }\geq 0 \text{.}}
 $$
 
-We also know that the information cards that show within the groups for the wood, screws, and paint are _identical_ and _indistinguishable_. With this information, the combination below will result in the count of possible unique process outcomes.
+We also know that the information cards that show within the groups for the wood, screws, and paint are _identical_ and _indistinguishable_. With this information and the combination in expression (1.5), the combination below will result in the count of possible unique process outcomes.
 
 $$
 \displaystyle
